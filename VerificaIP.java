@@ -1,12 +1,25 @@
-
 import java.util.Scanner;
 
 public class VerificaIP {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    static Scanner LER = new Scanner(System.in);
 
-        System.out.print("Digite o endereço IP: ");
-        String ipDigitado = sc.nextLine();
+    public static void main(String[] args) {
+        while (true) {
+            System.out.print("Digite o endereço IP (ou 'sair' para encerrar): ");
+            String ipDigitado = LER.nextLine();
+
+            if (ipDigitado.equalsIgnoreCase("sair")) {
+                System.out.println("Encerrando...");
+                break;
+            }
+
+            verificarIP(ipDigitado);
+            System.out.println();
+        }
+    }
+
+    public static void verificarIP(String ipDigitado) {
+        ipDigitado = ipDigitado.trim().replace(" ", "");
 
         String[] partes = ipDigitado.split("\\.");
         if (partes.length != 4) {
@@ -81,13 +94,12 @@ public class VerificaIP {
         int inicio4 = rede4 + 1;
         int fim4 = broadcast4 - 1;
 
+        System.out.println();
         System.out.println("classe: " + classe);
         System.out.println("end. rede: " + rede1 + "." + rede2 + "." + rede3 + "." + rede4);
         System.out.println("broadcast: " + broadcast1 + "." + broadcast2 + "." + broadcast3 + "." + broadcast4);
         System.out.println("faixa início: " + rede1 + "." + rede2 + "." + rede3 + "." + inicio4);
         System.out.println("faixa fim: " + broadcast1 + "." + broadcast2 + "." + broadcast3 + "." + fim4);
+        System.out.println("-----------------------------------");
     }
 }
-
-
-
