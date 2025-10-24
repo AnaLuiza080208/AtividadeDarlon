@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class VerificaIP {
-    static Scanner LER = new Scanner(System.in);
+    final static Scanner LER = new Scanner(System.in);
 
     public static void main(String[] args) {
         while (true) {
